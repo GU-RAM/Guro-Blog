@@ -1,1 +1,14 @@
-<p>header works!</p>
+<header class="bg-blue-600 text-white p-4 flex justify-center">
+  <div class="flex justify-between items-center container">
+    <div>
+      <a
+        [routerLink]="['']"
+        routerLinkActive="router-link-active"
+        class="font-bold"
+      >
+        GURO's PROJECT
+      </a>
+    </div>
+    <div class="font-bold">CURRENT DATE - {{ currentDate }}</div>
+  </div>
+</header>

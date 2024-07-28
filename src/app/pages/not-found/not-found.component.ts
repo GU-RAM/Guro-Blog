@@ -2,12 +2,11 @@ import { CommonModule, Location } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { NzButtonModule } from 'ng-zorro-antd/button';
-import { NzIconModule } from 'ng-zorro-antd/icon';
 
 @Component({
   selector: 'wmis-not-found',
   standalone: true,
-  imports: [CommonModule, NzButtonModule, NzIconModule],
+  imports: [CommonModule, NzButtonModule],
   templateUrl: './not-found.component.html',
   styleUrls: ['./not-found.component.scss'],
 })
@@ -27,6 +26,6 @@ export class NotFoundComponent {
   }
 
   goHome() {
-    this.router.navigateByUrl('/main');
+    this.router.navigateByUrl('');
   }
 }

@@ -1,0 +1,42 @@
+<div
+  class="workspace-header bg-gradient-to-r from-blue-500 to-purple-500 p-4 rounded-lg shadow-lg"
+>
+  <h1 class="headline text-4xl text-center text-white font-bold">
+    მომხმარებლები
+  </h1>
+</div>
+
+<hr class="my-4" />
+
+@if(users.length) {
+<app-filter-users (filter)="onFilter($event)"></app-filter-users>
+
+<nz-table class="mt-4" nzSize="middle" nzBordered>
+  <thead>
+    <tr>
+      <th class="center-text">სახელი</th>
+      <th class="center-text">გვარი</th>
+      <th class="center-text">ტელეფონის ნომერი</th>
+      <th class="center-text">მეილი</th>
+      <th class="center-text">კომპანიის დასახელება</th>
+      <th class="center-text">მომხმარებლის პოსტები</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (user of users; track user.id) {
+    <tr>
+      <td>{{ user.firstName }}</td>
+      <td>{{ user.lastName }}</td>
+      <td>{{ user.phone }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.company.name }}</td>
+      <td class="center-text">
+        <button [routerLink]="['/user-posts', user.id]" class="button">
+          პოსტები
+        </button>
+      </td>
+    </tr>
+    }
+  </tbody>
+</nz-table>
+}

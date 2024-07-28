@@ -1,1 +1,34 @@
-<p>layout works!</p>
+<app-header></app-header>
+<main class="main-wrapper">
+  <nav class="main-nav bg-gray-900 text-white p-6 w-64 h-100% py-20">
+    <ul class="flex flex-col gap-4">
+      <li
+        [routerLink]="['users']"
+        nz-tooltip
+        nzTooltipPlacement="bottom"
+        nzTooltipTitle="იუზერები"
+        class="flex items-center space-x-3 p-3 bg-gray-800 hover:bg-blue-500 hover:scale-105 rounded-md transition-all duration-300 ease-in-out transform cursor-pointer"
+      >
+        <span nzType="setting" nzTheme="outline" class="text-xl"></span>
+        <span>მომხმარებლები</span>
+      </li>
+      <li
+        [routerLink]="['posts']"
+        nz-tooltip
+        nzTooltipPlacement="bottom"
+        nzTooltipTitle="პოსტები"
+        class="flex items-center space-x-3 p-3 bg-gray-800 hover:bg-blue-500 hover:scale-105 rounded-md transition-all duration-300 ease-in-out transform cursor-pointer"
+      >
+        <span nzType="setting" nzTheme="outline" class="text-xl"></span>
+        <span>პოსტები</span>
+      </li>
+    </ul>
+  </nav>
+
+  <nz-content class="flex-1 p-8 bg-gray-100">
+    <div class="inner-content bg-white p-6 rounded-lg shadow-lg">
+      <router-outlet></router-outlet>
+    </div>
+  </nz-content>
+</main>
+<app-footer></app-footer>

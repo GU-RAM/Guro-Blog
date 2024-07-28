@@ -1,0 +1,49 @@
+<div
+  class="workspace-header bg-gradient-to-r from-blue-500 to-purple-500 p-4 rounded-lg shadow-lg"
+>
+  @if (user) {
+  <h1 class="headline text-4xl text-center text-white font-bold">
+    {{ user.name }}'s Posts
+  </h1>
+  } @else {
+  <h1 class="headline text-4xl text-center text-white font-bold">პოსტები</h1>
+  }
+</div>
+
+<hr class="my-4" />
+
+@if(!userId) {
+
+<nz-table class="mt-4" nzSize="middle" nzBordered>
+  <thead>
+    <tr>
+      <th class="center-text">მომხმარებლის სახელი</th>
+      <th class="center-text">პოსტის სათაური</th>
+      <th class="center-text"></th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (post of posts; track post.id) {
+    <tr>
+      <td>{{ post.name }}</td>
+      <td>{{ post.title }}</td>
+      <td class="center-text">
+        <button
+          class="button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300"
+          (click)="showModal(post)"
+        >
+          დეტალურად
+        </button>
+      </td>
+    </tr>
+    }
+  </tbody>
+</nz-table>
+} @else {
+<div class="grid grid-cols-4 gap-4">
+  @for (userPost of userPosts; track userPost.id) {
+  <app-card [cardTitle]="userPost.title" [cardBody]="userPost.body"> </app-card>
+  }
+</div>
+<ng-template #loading>Loading posts...</ng-template>
+}
